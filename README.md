@@ -6,9 +6,9 @@
 Thiết kế biểu đồ lớp, trình tự, giao tiếp cho Capstone project
 
 ### Contributions
-Lê Mạnh Cường: usecase ViewDockInformation
-Lê Dương Long: usecase RentBike
-Đinh Công Minh: usecase ViewBikeInformation
+Lê Mạnh Cường: usecase ViewDockInformation<br />
+Lê Dương Long: usecase RentBike<br />
+Đinh Công Minh: usecase ViewBikeInformation<br />
 Trần Đức Anh: usecase ReturnBike
 
 ### Revisions
