@@ -12,3 +12,18 @@ Lê Dương Long: usecase RentBike<br />
 Trần Đức Anh: usecase ReturnBike
 
 ### Revisions
+
+---
+
+## LAB 02 - Thiết kế giao diện
+
+### Tasks
+Thiết kế giao diện cho Capstone project
+
+### Contributions
+Lê Mạnh Cường: usecase ViewDockInformation<br />
+Lê Dương Long: usecase RentBike<br />
+Đinh Công Minh: usecase ViewBikeInformation<br />
+Trần Đức Anh: usecase ReturnBike
+
+### Revisions
