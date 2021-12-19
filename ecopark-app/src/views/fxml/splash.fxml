@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.screen.SplashScreenHandler">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="logo" fitHeight="463.0" fitWidth="472.0" layoutX="459.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+            <Image url="@../../../assets/images/logo.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="531.0" layoutY="390.0" prefHeight="96.0" prefWidth="317.0" text="Ecopark Bike App" textAlignment="CENTER" textFill="#569a39">
+               <font>
+                  <Font name="Segoe UI Semibold" size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
