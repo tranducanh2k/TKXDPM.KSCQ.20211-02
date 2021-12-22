@@ -1,6 +1,14 @@
 package entity;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import entity.BikeDB;
+import entity.BikeRental;
+
 
 public class BikeRental {
 	
@@ -70,6 +78,23 @@ public class BikeRental {
 		this.bikeIsReturned = bikeIsReturned;
 	}
 	
-	
-	
+	public List getAllInformation() throw SQLException{
+		Statement stm = BikeDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery("select * from BikeRental");
+        ArrayList medium = new ArrayList<>();
+        while (res.next()) {
+            BikeRental bikeRental = new BikeRental()
+                .setUserID(res.getInt("userid"))
+                .setBikeID(res.getInt("bikeid"))
+                .setStartRental(res.getDate("startrental"))
+                .setTimeRented(res.getInt("TimeRented"))
+                .setBatteryStatus(res.getString("battery"))
+                .setBikeIsReturned(res.getBoolean("isreturned"));
+            medium.add(BikeRental);
+        }
+	}
 }
+	
+	
+	
+
