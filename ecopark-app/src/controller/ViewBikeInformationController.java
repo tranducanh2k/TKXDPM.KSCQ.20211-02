@@ -7,9 +7,9 @@ import entity.BikeRental;
 
 public class ViewBikeInformationController {
 	
-	public List getBikeInformation() {
-		return new BikeRental().getAllInformation();
-	}
+//	public List getBikeInformation() {
+////		return new BikeRental().getAllInformation();
+//	}
 }
 	
 

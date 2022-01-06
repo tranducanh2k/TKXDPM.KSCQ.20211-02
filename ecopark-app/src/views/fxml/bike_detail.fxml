@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.screen.rentbike.BikeInfoHandler">
+   <children>
+      <Label layoutX="50.0" layoutY="57.0" prefHeight="89.0" prefWidth="268.0" text="Giá 30 phút đầu">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="220.0" prefHeight="89.0" prefWidth="313.0" text="Giá mỗi 15 phút sau">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label fx:id="textPrice30Min" layoutX="473.0" layoutY="57.0" prefHeight="89.0" prefWidth="258.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="63.0" />
+         </font>
+      </Label>
+      <Label fx:id="textPriceEach15Min" layoutX="474.0" layoutY="219.0" prefHeight="89.0" prefWidth="251.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="63.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

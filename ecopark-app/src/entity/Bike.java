@@ -7,7 +7,10 @@ public class Bike {
 	private String bikeType;
 	private String licensePlate;
 	private String battery;
-	
+
+	public Bike(){
+
+	}
 	
 	public Bike(int bikeID, String dockName, String bikeType, String licensePlate, String battery) {
 		super();

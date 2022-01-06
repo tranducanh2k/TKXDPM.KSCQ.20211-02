@@ -11,17 +11,30 @@ import entity.BikeRental;
 
 
 public class BikeRental {
-	
+	public int getRentalID() {
+		return rentalID;
+	}
+
+	public void setRentalID(int rentalID) {
+		this.rentalID = rentalID;
+	}
+
+	private int rentalID;
 	private int userID;
 	private int bikeID;
 	private Date startRental;
 	private int timeRented;
 	private String batteryStatus;
 	private boolean bikeIsReturned;
+
+	public BikeRental(){
+
+	}
 	
-	public BikeRental(int userID, int bikeID, Date startRental, int timeRented, String batteryStatus,
+	public BikeRental(int rentalID, int userID, int bikeID, Date startRental, int timeRented, String batteryStatus,
 			boolean bikeIsReturned) {
 		super();
+		this.rentalID = rentalID;
 		this.userID = userID;
 		this.bikeID = bikeID;
 		this.startRental = startRental;
@@ -78,21 +91,21 @@ public class BikeRental {
 		this.bikeIsReturned = bikeIsReturned;
 	}
 	
-	public List getAllInformation() throw SQLException{
-		Statement stm = BikeDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery("select * from BikeRental");
-        ArrayList medium = new ArrayList<>();
-        while (res.next()) {
-            BikeRental bikeRental = new BikeRental()
-                .setUserID(res.getInt("userid"))
-                .setBikeID(res.getInt("bikeid"))
-                .setStartRental(res.getDate("startrental"))
-                .setTimeRented(res.getInt("TimeRented"))
-                .setBatteryStatus(res.getString("battery"))
-                .setBikeIsReturned(res.getBoolean("isreturned"));
-            medium.add(BikeRental);
-        }
-	}
+//	public List getAllInformation() throw SQLException{
+//		Statement stm = BikeDB.getConnection().createStatement();
+//        ResultSet res = stm.executeQuery("select * from BikeRental");
+//        ArrayList medium = new ArrayList<>();
+//        while (res.next()) {
+//            BikeRental bikeRental = new BikeRental()
+//                .setUserID(res.getInt("userid"))
+//                .setBikeID(res.getInt("bikeid"))
+//                .setStartRental(res.getDate("startrental"))
+//                .setTimeRented(res.getInt("TimeRented"))
+//                .setBatteryStatus(res.getString("battery"))
+//                .setBikeIsReturned(res.getBoolean("isreturned"));
+//            medium.add(BikeRental);
+//        }
+//	}
 }
 	
 	

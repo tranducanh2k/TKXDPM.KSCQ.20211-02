@@ -1,22 +1,22 @@
 package entity;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import utils.Utils;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
-import java.sql.Connection;
 
 public class BikeDB {
 
-	private static Logger LOGGER = Util.getLogger(Connection.class.getName());
+	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());
 	private static Connection connect;
 
     public static Connection getConnection() {
         if (connect != null) return connect;
         try {
 			Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:assets/db/aims.db";
+            String url = "jdbc:sqlite:assets/db/bike.db";
             connect = DriverManager.getConnection(url);
             LOGGER.info("Connect database successfully");
         } catch (Exception e) {
@@ -24,9 +24,9 @@ public class BikeDB {
         } 
         return connect;
     }
-    
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
         BikeDB.getConnection();
     }
 }
