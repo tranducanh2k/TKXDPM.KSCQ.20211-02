@@ -52,8 +52,8 @@ public class RentingBikeInfoScreenHandler {
 
     SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 
-    private BikeRental bikeRental;
-    private Bike bike;
+    private BikeRental bikeRental = new BikeRental();
+    private Bike bike = new Bike();
     private RentBikeController rentBikeController = new RentBikeController();
 
     public void initializeBike(BikeRental bikeRental, Bike bike) {
@@ -69,7 +69,9 @@ public class RentingBikeInfoScreenHandler {
         if(result.get() == ButtonType.OK) {
             timer.stop();
 
-//            rentBikeController.updateRental(bikeRental);
+            //luu vao database
+            rentBikeController.addRental(bikeRental);
+//          bikeRental.setRentalID(rentBikeController.findRental(bikeRental));
 
             //chuyen sang man tra xe
         }
@@ -139,7 +141,7 @@ public class RentingBikeInfoScreenHandler {
                 long deltaT = (newTime - timestamp) / 1000;
                 time += deltaT;
                 timestamp += 1000 * deltaT;
-                timeRentedText.setText(Long.toString(time/60) + " phút " + Long.toString(time%60)+" giây");
+                timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60));
                 bikeRental.setTimeRented((int) time/60);
                 priceText.setText(String.valueOf(calculatePrice()) + " vnd");
             }

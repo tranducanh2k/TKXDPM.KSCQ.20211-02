@@ -18,7 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class PaymentScreenHandler implements Initializable {
+public class PaymentScreenHandler {
 
     @FXML
     private Button payBtn;
@@ -26,8 +26,6 @@ public class PaymentScreenHandler implements Initializable {
     private BikeRental bikeRental = new BikeRental();
 
     private Bike bike = new Bike();
-
-    private RentBikeController rentBikeController = new RentBikeController();
 
     public void initializeBike(Bike bike) {
         this.bike = bike;
@@ -49,7 +47,6 @@ public class PaymentScreenHandler implements Initializable {
         Parent parent = loader.load();
 
         //khoi tao thong tin thue xe
-        initializeBike(bike);
         initializeBikeRental();
 
         RentingBikeInfoScreenHandler rentingBikeInfoScreenHandler = (RentingBikeInfoScreenHandler) loader.getController();
@@ -60,14 +57,4 @@ public class PaymentScreenHandler implements Initializable {
         stage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            //luu vao database
-//            rentBikeController.addRental(bikeRental);
-//            bikeRental.setRentalID(rentBikeController.findRental(bikeRental));
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-    }
 }

@@ -104,11 +104,17 @@ public class RentingScreenHandler implements Initializable {
     		Parent parent = loader.load();
 
     		Bike bike = tableBikeInfo.getSelectionModel().getSelectedItem();
-    		PaymentScreenHandler paymentScreenHandler = (PaymentScreenHandler) loader.getController();
-    		paymentScreenHandler.initializeBike(bike);
+			if(bike == null){
+				Alert alertBike = new Alert(AlertType.WARNING);
+				alertBike.setHeaderText("Chọn một xe để tiếp tục");
+				alertBike.showAndWait();
+			}else {
+				PaymentScreenHandler paymentScreenHandler = (PaymentScreenHandler) loader.getController();
+				paymentScreenHandler.initializeBike(bike);
 
-    		stage.setScene(new Scene(parent));
-    		stage.show();
+				stage.setScene(new Scene(parent));
+				stage.show();
+			}
     	}
     	
     }
@@ -116,7 +122,9 @@ public class RentingScreenHandler implements Initializable {
     @FXML
     void handleRow(MouseEvent event) throws IOException {
     	if(event.getClickCount() == 2 && tableBikeInfo.getSelectionModel().getSelectedItem() != null) {
-    		Bike bike = tableBikeInfo.getSelectionModel().getSelectedItem();
+
+			Bike bike = tableBikeInfo.getSelectionModel().getSelectedItem();
+
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/bike_detail.fxml"));
     		Parent parent = loader.load();
     		

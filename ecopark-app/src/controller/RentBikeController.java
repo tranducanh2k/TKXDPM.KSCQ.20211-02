@@ -13,8 +13,10 @@ import java.util.List;
 
 public class RentBikeController {
 
+        private BikeDB bikeDB = new BikeDB();
+
     	public List<Bike> getBikeFromDock(String dockName) throws SQLException {
-            Statement stm = BikeDB.getConnection().createStatement();
+            Statement stm = bikeDB.getConnection().createStatement();
             ResultSet res = stm.executeQuery("select * from Bike where dockName = '"+dockName+"'");
             List<Bike> list = new ArrayList<>();
             while (res.next()) {
@@ -26,28 +28,28 @@ public class RentBikeController {
                 list.add(bike);
             }
 
-            BikeDB.getConnection().close();
-
             return list;
         }
 
-        public void addRental(BikeRental bikeRental) throws SQLException {
-            Connection connection = BikeDB.getConnection();
-            PreparedStatement pst = connection.prepareStatement("insert into BikeRental (userID, bikeID, startRental, timeRented, batteryStatus, bikeIsReturned) "
-                                                + "values ("+bikeRental.getUserID()+","+bikeRental.getBikeID()+","+bikeRental.getStartRental()
-                                                +","+bikeRental.getTimeRented()+","+bikeRental.getBatteryStatus()+","+bikeRental.isBikeIsReturned()+")");
-            pst.executeUpdate();
-            connection.close();
-            pst.close();
-        }
+        public void addRental(BikeRental bikeRental) {
+            Connection connection = bikeDB.getConnection();
+            String sql = "Insert into BikeRental(userID, bikeID, startRental, timeRented, batteryStatus, bikeIsReturned) Values (?, ?, ?, ?, ?, ?)";
 
-        public void updateRental(BikeRental bikeRental) throws SQLException {
-            Connection conn = BikeDB.getConnection();
-            PreparedStatement pst = conn.prepareStatement("Update BikeRental set timeRented = "+bikeRental.getTimeRented()
-                                                            +" where rentalID = "+bikeRental.getRentalID());
-            pst.executeUpdate();
-            conn.close();
-            pst.close();
+            PreparedStatement pst = null;
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setInt(1, bikeRental.getUserID());
+                pst.setInt(2, bikeRental.getBikeID());
+                pst.setDate(3, new java.sql.Date(bikeRental.getStartRental().getTime()));
+                pst.setInt(4, bikeRental.getTimeRented());
+                pst.setString(5, bikeRental.getBatteryStatus());
+                pst.setBoolean(6, bikeRental.isBikeIsReturned());
+
+                pst.executeUpdate();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         public int findRental(BikeRental bikeRental) throws SQLException {

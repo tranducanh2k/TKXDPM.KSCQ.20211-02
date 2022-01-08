@@ -67,7 +67,7 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="timeRentedText" layoutX="487.0" layoutY="360.0" prefHeight="48.0" prefWidth="196.0">
+      <TextField fx:id="timeRentedText" layoutX="385.0" layoutY="360.0" prefHeight="48.0" prefWidth="298.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -77,7 +77,7 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="batteryText" layoutX="484.0" layoutY="445.0" prefHeight="48.0" prefWidth="196.0">
+      <TextField fx:id="batteryText" layoutX="382.0" layoutY="445.0" prefHeight="48.0" prefWidth="298.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -87,7 +87,7 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="priceText" layoutX="486.0" layoutY="535.0" prefHeight="48.0" prefWidth="196.0">
+      <TextField fx:id="priceText" layoutX="384.0" layoutY="535.0" prefHeight="48.0" prefWidth="298.0">
          <font>
             <Font size="26.0" />
          </font>
