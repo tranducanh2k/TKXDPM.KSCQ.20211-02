@@ -31,7 +31,7 @@ public class BikeInfoHandler {
     
 
     public void initializeTextField(Bike bike){
-        if(bike.getBikeType() == "xe dien" || bike.getBikeType() == "xe dap doi")	{
+        if(bike.getBikeType().equals("xe dien") || bike.getBikeType().equals("xe dap doi"))	{
         	textPrice30Min.setText("15000d");
         	textPriceEach15Min.setText("22500d");
         }else {

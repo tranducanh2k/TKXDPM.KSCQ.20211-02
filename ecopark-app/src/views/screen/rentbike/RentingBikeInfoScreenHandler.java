@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import controller.RentBikeController;
 import entity.Bike;
@@ -13,16 +11,12 @@ import entity.BikeRental;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
 public class RentingBikeInfoScreenHandler {
 
@@ -93,14 +87,14 @@ public class RentingBikeInfoScreenHandler {
     private long calculatePrice() {
         long price;
 
-        if(bikeRental.getTimeRented() < 10)
+        if(bikeRental.getTimeRented() < 0)
             price = 0;
         else if(bikeRental.getTimeRented() < 30)
             price = 10000;
         else
             price = 10000 + (bikeRental.getTimeRented() - 30)/15 * 3000;
 
-        if(bike.getBikeType() == "xe dien" || bike.getBikeType() == "Xe dap doi") {
+        if(bike.getBikeType().equals("xe dien") || bike.getBikeType().equals("Xe dap doi")) {
             return (long) (price * 1.5);
         }else {
             return price;
