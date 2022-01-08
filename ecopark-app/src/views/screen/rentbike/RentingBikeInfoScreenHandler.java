@@ -39,6 +39,9 @@ public class RentingBikeInfoScreenHandler {
     private TextField priceText;
 
     @FXML
+    private TextField bikeTypeText;
+
+    @FXML
     private Button returnBikeBtn;
 
     @FXML
@@ -82,20 +85,9 @@ public class RentingBikeInfoScreenHandler {
         licensePlateText.setText(bike.getLicensePlate());
         startRentalText.setText(formatter.format(bikeRental.getStartRental()));
         batteryText.setText(bikeRental.getBatteryStatus());
-
-
-//    	Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                String string = new SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis());
-//                timeRentedText.setText(string);
-//            }
-//        }, 0, 1000);
+        bikeTypeText.setText(bike.getBikeType());
 
         timer.start();
-
-
     }
 
     private long calculatePrice() {
@@ -108,7 +100,7 @@ public class RentingBikeInfoScreenHandler {
         else
             price = 10000 + (bikeRental.getTimeRented() - 30)/15 * 3000;
 
-        if(bike.getBikeType() == "Electric" || bike.getBikeType() == "Xe dap doi") {
+        if(bike.getBikeType() == "xe dien" || bike.getBikeType() == "Xe dap doi") {
             return (long) (price * 1.5);
         }else {
             return price;

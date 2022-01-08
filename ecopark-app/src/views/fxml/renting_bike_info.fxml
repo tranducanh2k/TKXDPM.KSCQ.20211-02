@@ -101,5 +101,15 @@
          <image>
             <Image url="@../../../assets/images/giphy.gif" />
          </image></ImageView>
+      <Text layoutX="1051.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại xe">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="bikeTypeText" layoutX="1136.0" layoutY="147.0" prefHeight="48.0" prefWidth="155.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
