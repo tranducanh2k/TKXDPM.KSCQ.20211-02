@@ -37,12 +37,12 @@
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Button>
-            <TableView fx:id="tableBikeInfo" layoutX="125.0" layoutY="213.0" onMouseClicked="#handleRow" prefHeight="417.0" prefWidth="945.0">
+            <TableView fx:id="tableBikeInfo" layoutX="125.0" layoutY="213.0" onMouseClicked="#handleRow" prefHeight="417.0" prefWidth="782.0">
               <columns>
-                <TableColumn fx:id="col_bikeID" prefWidth="183.18158721923828" text="Mã xe" />
-                  <TableColumn fx:id="col_bikeType" prefWidth="230.31842041015625" text="Kiểu xe" />
-                  <TableColumn fx:id="col_lisencePlate" prefWidth="279.76434326171875" text="Biển số xe" />
-                  <TableColumn fx:id="col_battery" prefWidth="247.9290771484375" text="Pin" />
+                <TableColumn fx:id="col_bikeID" prefWidth="125.4703369140625" text="Mã xe" />
+                  <TableColumn fx:id="col_bikeType" prefWidth="181.8682861328125" text="Kiểu xe" />
+                  <TableColumn fx:id="col_lisencePlate" prefWidth="259.1650390625" text="Biển số xe" />
+                  <TableColumn fx:id="col_battery" prefWidth="212.52130126953125" text="Pin" />
               </columns>
             </TableView>
             <Button fx:id="btnWatch" layoutX="575.0" layoutY="131.0" mnemonicParsing="false" onAction="#onClickWatch" prefHeight="51.0" prefWidth="94.0" text="Xem " textAlignment="CENTER" textFill="#565751">
@@ -50,21 +50,17 @@
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Button>
-            <Text layoutX="794.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe:" wrappingWidth="73.94921875">
+            <Text layoutX="764.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe:" wrappingWidth="73.94921875">
                <font>
                   <Font size="26.0" />
                </font>
             </Text>
-            <Text fx:id="textDockName" layoutX="886.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="73.94921875">
+            <Text fx:id="textDockName" layoutX="856.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="73.94921875">
                <font>
                   <Font size="26.0" />
                </font>
             </Text>
-            <Button fx:id="rentBikeBtn" layoutX="1125.0" layoutY="216.0" mnemonicParsing="false" onAction="#onClickRentBikeBtn" prefHeight="66.0" prefWidth="203.0" style="-fx-background-color: #e56b2e;" text="Thuê xe" textFill="WHITE">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Button>
+            <ImageView fx:id="imageBike" fitHeight="304.0" fitWidth="394.0" layoutX="930.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Pane prefHeight="100.0" prefWidth="1366.0" style="-fx-background-color: #f4f4f3;">
@@ -87,5 +83,10 @@
             <Line endX="100.0" layoutX="1215.0" layoutY="87.0" startX="7.5999755859375" startY="7.62939453125E-6" stroke="#2f66e2" />
          </children>
       </Pane>
+      <Button fx:id="rentBikeBtn" layoutX="1028.0" layoutY="662.0" mnemonicParsing="false" onAction="#onClickRentBikeBtn" prefHeight="66.0" prefWidth="203.0" style="-fx-background-color: #e56b2e;" text="Thuê xe" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

@@ -7,18 +7,20 @@ public class Bike {
 	private String bikeType;
 	private String licensePlate;
 	private String battery;
+	private String image;
 
 	public Bike(){
 
 	}
 	
-	public Bike(int bikeID, String dockName, String bikeType, String licensePlate, String battery) {
+	public Bike(int bikeID, String dockName, String bikeType, String licensePlate, String battery, String image) {
 		super();
 		this.bikeID = bikeID;
 		this.dockName = dockName;
 		this.bikeType = bikeType;
 		this.licensePlate = licensePlate;
 		this.battery = battery;
+		this.image = image;
 	}
 	
 	public int getBikeID() {
@@ -50,6 +52,12 @@ public class Bike {
 	}
 	public void setBattery(String battery) {
 		this.battery = battery;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }

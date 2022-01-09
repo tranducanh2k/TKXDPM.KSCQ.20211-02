@@ -24,7 +24,8 @@ public class RentBikeController {
                                     res.getString("dockName"),
                                     res.getString("bikeType"),
                                     res.getString("licensePlate"),
-                                    res.getString("battery"));
+                                    res.getString("battery"),
+                                    res.getString("image"));
                 list.add(bike);
             }
 
