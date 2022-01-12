@@ -3,15 +3,17 @@ package entity;
 public class Dock {
 	private String dockName;
 	private String location;
-	private int area;
+	private String area;
 	private int numberOfBike;
+	private String image;
 	
-	public Dock(String dockName, String location, int area, int numberOfBike) {
+	public Dock(String dockName, String location, String area, int numberOfBike, String image) {
 		super();
 		this.dockName = dockName;
 		this.location = location;
 		this.area = area;
 		this.numberOfBike = numberOfBike;
+		this.image = image;
 	}
 
 	public String getDockName() {
@@ -30,11 +32,11 @@ public class Dock {
 		this.location = location;
 	}
 
-	public int getArea() {
+	public String getArea() {
 		return area;
 	}
 
-	public void setArea(int area) {
+	public void setArea(String area) {
 		this.area = area;
 	}
 
@@ -45,7 +47,12 @@ public class Dock {
 	public void setNumberOfBike(int numberOfBike) {
 		this.numberOfBike = numberOfBike;
 	}
-	
-	
-	
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

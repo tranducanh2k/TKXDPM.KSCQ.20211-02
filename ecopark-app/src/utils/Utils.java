@@ -1,5 +1,8 @@
 package utils;
 
+import entity.Bike;
+import entity.BikeRental;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -67,6 +70,29 @@ public class Utils {
 			digest = "";
 		}
 		return digest;
+	}
+
+	/**
+	 * calculate price based on time rented
+	 * @param bikeRental
+	 * @param bike
+	 * @return
+	 */
+	public static long calculatePrice(BikeRental bikeRental, Bike bike) {
+		long price;
+
+		if(bikeRental.getTimeRented()/60 < 10)
+			price = 0;
+		else if(bikeRental.getTimeRented()/60 < 30)
+			price = 10000;
+		else
+			price = 10000 + (bikeRental.getTimeRented()/60 - 30)/15 * 3000;
+
+		if(bike.getBikeType().equals("xe dien") || bike.getBikeType().equals("Xe dap doi")) {
+			return (long) (price * 1.5);
+		}else {
+			return price;
+		}
 	}
 
 }

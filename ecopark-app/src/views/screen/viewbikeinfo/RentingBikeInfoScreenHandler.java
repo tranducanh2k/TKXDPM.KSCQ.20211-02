@@ -1,4 +1,4 @@
-package views.screen.rentbike;
+package views.screen.viewbikeinfo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,12 +11,18 @@ import entity.BikeRental;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import utils.Utils;
+import views.screen.returnbike.ReturnBikeScreenHandler;
 
 public class RentingBikeInfoScreenHandler {
 
@@ -71,6 +77,15 @@ public class RentingBikeInfoScreenHandler {
 //          bikeRental.setRentalID(rentBikeController.findRental(bikeRental));
 
             //chuyen sang man tra xe
+            Stage stage = (Stage) batteryText.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/return_bike.fxml"));
+            Parent parent = loader.load();
+
+            ReturnBikeScreenHandler returnBikeScreenHandler = (ReturnBikeScreenHandler) loader.getController();
+            returnBikeScreenHandler.initializeBike(this.bikeRental, this.bike);
+
+            stage.setScene(new Scene(parent));
+            stage.show();
         }
     }
 
@@ -82,23 +97,6 @@ public class RentingBikeInfoScreenHandler {
         bikeTypeText.setText(bike.getBikeType());
 
         timer.start();
-    }
-
-    private long calculatePrice() {
-        long price;
-
-        if(bikeRental.getTimeRented() < 0)
-            price = 0;
-        else if(bikeRental.getTimeRented() < 30)
-            price = 10000;
-        else
-            price = 10000 + (bikeRental.getTimeRented() - 30)/15 * 3000;
-
-        if(bike.getBikeType().equals("xe dien") || bike.getBikeType().equals("Xe dap doi")) {
-            return (long) (price * 1.5);
-        }else {
-            return price;
-        }
     }
 
     AnimationTimer timer = new AnimationTimer() {
@@ -128,8 +126,8 @@ public class RentingBikeInfoScreenHandler {
                 time += deltaT;
                 timestamp += 1000 * deltaT;
                 timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60));
-                bikeRental.setTimeRented((int) time/60);
-                priceText.setText(String.valueOf(calculatePrice()) + " vnd");
+                bikeRental.setTimeRented((int) time);
+                priceText.setText(String.valueOf(Utils.calculatePrice(bikeRental, bike)) + " vnd");
             }
         }
     };

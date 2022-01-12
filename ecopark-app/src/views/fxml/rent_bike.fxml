@@ -25,7 +25,7 @@
                   <Font size="24.0" />
                </font>
             </TextField>
-            <Button layoutY="6.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #fff;" text="Quay lại" textFill="#178feb">
+            <Button layoutY="6.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="45.0" prefWidth="145.0" style="-fx-background-color: #fff;" text="Quay lại" textFill="#178feb">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="27.0">
                      <image>

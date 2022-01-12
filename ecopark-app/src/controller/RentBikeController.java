@@ -3,12 +3,9 @@ package controller;
 import entity.Bike;
 import entity.BikeDB;
 import entity.BikeRental;
-import entity.User;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RentBikeController {

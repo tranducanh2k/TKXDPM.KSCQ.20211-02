@@ -47,7 +47,7 @@ public class Main extends Application {
 			// After fade out, load actual content
 			fadeOut.setOnFinished((e) -> {
 				try {
-					Pane rentPane = (Pane) FXMLLoader.load(getClass().getResource("/views/fxml/rent_bike.fxml"));
+					Pane rentPane = (Pane) FXMLLoader.load(getClass().getResource("/views/fxml/dock_info.fxml"));
 					Scene rentScene = new Scene(rentPane);
 					primaryStage.setScene(rentScene);
 					primaryStage.show();

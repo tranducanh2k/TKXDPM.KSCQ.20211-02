@@ -3,13 +3,11 @@ package views.screen.rentbike;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 
 import controller.RentBikeController;
-import entity.BikeDB;
+import entity.Dock;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,9 +30,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import entity.Bike;
-import entity.Dock;
 
-public class RentingScreenHandler implements Initializable {
+public class RentingScreenHandler {
 	@FXML
     public Pane mainPane;
 
@@ -65,25 +61,6 @@ public class RentingScreenHandler implements Initializable {
 
 	private ObservableList<Bike> tableOblist;
 	private RentBikeController rentBikeController = new RentBikeController();
-    
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-    	textDockName.setText("dock 1");
-
-		col_lisencePlate.setCellValueFactory(new PropertyValueFactory<>("licensePlate"));
-    	col_battery.setCellValueFactory(new PropertyValueFactory<>("battery"));
-    	col_bikeID.setCellValueFactory(new PropertyValueFactory<>("bikeID"));
-    	col_bikeType.setCellValueFactory(new PropertyValueFactory<>("bikeType"));
-
-		try {
-			List<Bike> list = rentBikeController.getBikeFromDock(textDockName.getText());
-			tableOblist = FXCollections.observableArrayList(list);
-			tableBikeInfo.setItems(tableOblist);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-    }
     
 
     @FXML
@@ -149,4 +126,31 @@ public class RentingScreenHandler implements Initializable {
             stage.show();
     	}
     }
+
+	@FXML
+	void onClickBack(ActionEvent event) throws IOException {
+		Stage stage = (Stage) mainPane.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/dock_info.fxml"));
+		Parent parent = loader.load();
+
+		stage.setScene(new Scene(parent));
+		stage.show();
+	}
+
+	public void initializeDock(Dock dock){
+		textDockName.setText(dock.getDockName());
+
+		col_lisencePlate.setCellValueFactory(new PropertyValueFactory<>("licensePlate"));
+		col_battery.setCellValueFactory(new PropertyValueFactory<>("battery"));
+		col_bikeID.setCellValueFactory(new PropertyValueFactory<>("bikeID"));
+		col_bikeType.setCellValueFactory(new PropertyValueFactory<>("bikeType"));
+
+		try {
+			List<Bike> list = rentBikeController.getBikeFromDock(textDockName.getText());
+			tableOblist = FXCollections.observableArrayList(list);
+			tableBikeInfo.setItems(tableOblist);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

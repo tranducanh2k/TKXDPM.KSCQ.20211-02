@@ -5,7 +5,7 @@ import java.util.List;
 
 import entity.BikeRental;
 
-public class ViewBikeInformationController {
+public class ViewRentingBikeController {
 	
 //	public List getBikeInformation() {
 ////		return new BikeRental().getAllInformation();
