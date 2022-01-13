@@ -125,7 +125,7 @@ public class RentingBikeInfoScreenHandler {
                 long deltaT = (newTime - timestamp) / 1000;
                 time += deltaT;
                 timestamp += 1000 * deltaT;
-                timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60));
+                timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60)+"s");
                 bikeRental.setTimeRented((int) time);
                 priceText.setText(String.valueOf(Utils.calculatePrice(bikeRental, bike)) + " vnd");
             }

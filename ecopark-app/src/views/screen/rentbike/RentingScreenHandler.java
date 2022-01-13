@@ -39,7 +39,7 @@ public class RentingScreenHandler {
 	private ImageView imageBike;
 
     @FXML
-    public TableView<Bike> tableBikeInfo;
+    private TableView<Bike> tableBikeInfo;
     
     @FXML
     private TableColumn<Bike, Integer> col_bikeID;

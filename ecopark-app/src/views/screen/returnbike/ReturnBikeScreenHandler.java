@@ -81,7 +81,7 @@ public class ReturnBikeScreenHandler implements Initializable {
         startRentalText.setText(formatter.format(bikeRental.getStartRental()));
         returnTimeText.setText(formatter.format(System.currentTimeMillis()));
         int time = bikeRental.getTimeRented();
-        timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60));
+        timeRentedText.setText(Long.toString(time/3600) + " giờ " + Long.toString(time%3600/60)+" phút "+Long.toString(time%3600%60)+"s");
         priceText.setText(String.valueOf(Utils.calculatePrice(bikeRental, bike)) + " VND");
     }
 
