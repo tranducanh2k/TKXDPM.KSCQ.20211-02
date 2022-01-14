@@ -1,5 +1,6 @@
 package views.screen.returnbike;
 
+import controller.PaymentController;
 import controller.ReturnBikeController;
 import controller.ViewDockController;
 import entity.Bike;
@@ -31,6 +32,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ReturnBikeScreenHandler implements Initializable {
@@ -88,6 +90,11 @@ public class ReturnBikeScreenHandler implements Initializable {
     @FXML
     void onClickPayBtn(ActionEvent event) throws IOException, SQLException {
         returnBikeController.updateDockBike(dockTable.getSelectionModel().getSelectedItem(), bike);
+
+        String contents = "pay order";
+        PaymentController ctrl = new PaymentController();
+        Map<String, String> response = ctrl.payOrder((int) Utils.calculatePrice(bikeRental, bike), contents, "kscq1_group2_2021", "Group 2",
+                "1125", "323");
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("PAYMENT SUCCESSFUL!");
