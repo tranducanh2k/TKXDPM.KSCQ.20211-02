@@ -83,7 +83,7 @@ public class RentingScreenHandler {
     	Optional<ButtonType> result = alert.showAndWait();
     	if(result.get() == ButtonType.OK) {
     		Stage stage = (Stage) mainPane.getScene().getWindow();
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/payment_screen.fxml"));
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/payment.fxml"));
     		Parent parent = loader.load();
 
     		Bike bike = tableBikeInfo.getSelectionModel().getSelectedItem();

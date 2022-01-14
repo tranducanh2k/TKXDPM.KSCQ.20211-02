@@ -95,4 +95,19 @@ public class Utils {
 		}
 	}
 
+	/**
+	 * tinh so tien dat coc dua tren loai xe
+	 * @param bike
+	 * @return
+	 */
+	public static int calDeposit(Bike bike){
+		if(bike.getBikeType().equals("xe dap don")){
+			return 400000;
+		}else if(bike.getBikeType().equals("xe dap doi")){
+			return 550000;
+		}else{
+			return 700000;
+		}
+	}
+
 }

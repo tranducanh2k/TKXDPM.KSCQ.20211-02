@@ -89,6 +89,12 @@ public class ReturnBikeScreenHandler implements Initializable {
     void onClickPayBtn(ActionEvent event) throws IOException, SQLException {
         returnBikeController.updateDockBike(dockTable.getSelectionModel().getSelectedItem(), bike);
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("PAYMENT SUCCESSFUL!");
+        alert.setContentText("Tiền cọc hoàn lại: "+Utils.calDeposit(bike)+" VND\n" +
+                                "Tiền phí: "+priceText.getText());
+        alert.showAndWait();
+
         Stage stage = (Stage) priceText.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/fxml/dock_info.fxml"));
         Parent parent = loader.load();
